@@ -387,9 +387,9 @@ parse_request(Buffer, State=#state{opts=Opts, in_streamid=InStreamID}, EmptyLine
 				%% @todo * is only for server-wide OPTIONS request (RFC7230 5.3.4); tests
 				<< "OPTIONS * ", Rest/bits >> ->
 					parse_version(Rest, State, <<"OPTIONS">>, undefined, <<"*">>, <<>>);
-				<<"CONNECT ", _/bits>> ->
-					error_terminate(501, State, {connection_error, no_error,
-						'The CONNECT method is currently not implemented. (RFC7231 4.3.6)'});
+			%%	<<"CONNECT ", _/bits>> ->
+			%%		error_terminate(501, State, {connection_error, no_error,
+			%%			'The CONNECT method is currently not implemented. (RFC7231 4.3.6)'});
 				<<"TRACE ", _/bits>> ->
 					error_terminate(501, State, {connection_error, no_error,
 						'The TRACE method is currently not implemented. (RFC7231 4.3.8)'});
